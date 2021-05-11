@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //定义一个异步函数
+        async function f1(){
+            let pass =  await new Promise(function(resolve,reject){
+                  //当异步操成功的时候调用resolve
+            //原生ajax            
+            var xhr = new XMLHttpRequest();
+            //监听
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState==4 && xhr.status==200){
+                    //接收服务器的响应数据
+                    // var data = xhr.responseText                
+                    // console.log("接收到服务器的数据",data);
+                    resolve(xhr.responseText)
+                }  
+            }
+        
+            xhr.open('get',"http://vue.api.comcto.com/api/password1.php")
+            xhr.send()
+            
+        })
+        return pass
+    }
+        // 调用异步函数
+        let res1 = f1()
+        console.log(res1)
+        res1.then(function(d){
+            console.log(d)
+        })
+            console.log(222)
+</script>
+</body>
+</html>

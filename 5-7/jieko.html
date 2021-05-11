@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class A{
+            static username = "noname"
+            helloAkj9(){
+                console.log("Hello")
+            }
+        }
+        class B extends A{
+            helloB(){
+                console.log("NNNNN");
+            }
+        }
+        class C extends B{
+
+        }
+        // const obj1 = new B()
+        // console.log(obj1)
+        // obj1.hello()
+        const obj = new C()
+        console.log(obj)
+
+        obj.helloB()
+        obj.helloA()
+
+    </script>
+    
+</body>
+</html>

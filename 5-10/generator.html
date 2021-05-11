@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //如果是迭代器就可以用for of
+        function * f1(){
+            let a = 11
+            let b = 22
+            yield a+b
+            yield "ccc"
+            yield "aaa"
+            yield "bbb"
+            return "hello world"
+            
+        }
+        let res = f1()
+        console.log(res.next())
+        console.log(res.next())
+        console.log(res.next())
+        console.log(res.next())
+        for(v of f1()){
+            console.log(v)
+        }
+    </script>
+</body>
+</html>

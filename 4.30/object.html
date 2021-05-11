@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //创建对象
+        let obj = {};
+        // const obj2 = new Object();
+        let p1 = Object.getPrototypeOf(obj);
+        let p2 = obj.__proto__;
+        let p3 = Object.prototype
+        console.log(p1==p2);
+        console.log(p1==p3);
+    
+    </script>
+</body>
+</html>

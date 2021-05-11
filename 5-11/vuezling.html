@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <body>
+        <div id="app">
+            <p v-on:click="f1">{{ msg }}</p>
+            <p @click="f1">{{ msg }}</p>
+            <hr>
+            <!--mouseover对应mouseenter  |  mouseout对应mouseleave-->
+            <p @mouseover="f2" @mouseout="f3" @mouseup="f5" @mousemove="f6" @contextmenu="f7">{{ action }}</p>
+            <hr>
+    
+            <!-- 事件变量，不添加()，默认会传事件对象: $event -->
+            <!-- 事件变量，添加()，代表要自定义传参，系统不再传入事件对象，但是可以手动传入事件对象 -->
+            <p @click="f8($event, '第一个')">{{ info }}</p>
+            <p @click="f8($event, '第二个')">{{ info }}</p>
+        </div>
+    </body>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                msg: '点击切换',
+                action: '鼠标事件',
+                info: '确定点击者'
+            },
+            methods: {
+                f1 () {
+                    this.msg = '点击了'
+                },
+                f2 () {
+                    this.action = '悬浮';
+                    console.log('悬浮')
+                },
+                f3 () {
+                    this.action = '离开'
+                },
+                f4 () {
+                    this.action = '按下'
+                },
+                f5 () {
+                    this.action = '抬起'
+                },
+                f6 () {
+                    this.action = '移动';
+                    console.log('移动')
+                },
+                f7 () {
+                    this.action = '右键';
+                },
+                f8 (ev, argv) {
+                    console.log(ev, argv);
+                    this.info = argv + '点击了';
+                }
+            }
+        })
+    </script>
+</body>
+</html>

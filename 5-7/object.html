@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let name = "zhangsan";
+        let age = 11;
+        let say = () => { return "helloword" }
+        let obj = (name, age, say);
+        console.log(obj.name);
+        console.log(obj.age);
+        console.log(obj.say);
+
+        let par = {
+            name: "zhangsan",
+            age: 11,
+            sex: "MAX"
+        }
+        console.log(par)
+
+        //将对象中所有可枚举属性拷贝到p中
+        let p = { ...par }
+        console.log(p)
+
+
+        let arr = [11, 23, 331, 31];
+        let obj1 = { ...arr }
+        console.log(obj1)
+
+
+
+
+
+
+        // 要创造一个模板字符串，只需要使用反引号``将字符串包起来，模板字符串中的变量用${变量名}替代即可
+
+        var a = 'o,'; var b = 'd!'
+        console.log(`Hell${a}worl${b}`);
+        // Hello,world!
+        1
+        2
+        3
+        // 1、多行字符串
+
+        // 在模板字符串内，换行和空格是会保存并展示出来的
+
+        var a = 'o,'; var b = 'd!'
+        console.log(`Hell${a}
+  worl${b}`);
+        /*
+        Hello,
+          world!
+        */
+        1
+        2
+        3
+        4
+        5
+        6
+        7
+        // 2、嵌入表达式。
+
+        var a = 1; b = 2;
+        console.log(`${a} + ${b} = ${a + b} `)
+        //1 + 2 = 3 
+        1
+        2
+        3
+        // 3、调用函数
+
+        function string() {
+            return "Hello！";
+        }
+        console.log(`${string()} world!`);
+//Hello！ world!
+
+    </script>
+</body>
+
+</html>

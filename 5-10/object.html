@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            name: "zhangsan",
+            age : 11,
+            sex :"Male"
+        }
+        let obj2 = {
+            name: "lisi",
+            age : 22,
+            sex :"Male",
+            email : "lisi@qq.com"
+        }
+        //定义一个生成器函数,作为迭代器接口
+        function * it(){
+            for(k in this){
+                yield this[k]
+            }
+        }
+        // console.log(Object.prototype)
+        //讲生成器函数 添加到对象原型中S于脉搏了，iterator属性
+        Object.prototype[Symbol.iterator] = it 
+        for (v of obj2){
+            console.log(v)
+        }
+    </script>
+</body>
+</html>
+

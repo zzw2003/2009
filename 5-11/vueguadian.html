@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <meta http-equiv="Content-Type"content="text/html; charset=utf-8"/>
+    <section>
+        <div id="d1">
+            <!-- 这里的msg为一个变量值，通过vue给其传值 -->
+            {{ msg }}  
+            <p v-on:click="pClick" v-bind:style="pStyle">
+                {{ info }}
+            </p>
+        </div>
+        <hr>
+        <div class="d2">
+            <!-- 不加空格就不会被vue识别，会直接在浏览器中渲染出来/ -->
+            {{}}  
+        </div>
+        <hr>
+        <div class="d2">
+            {{ }}
+        </div>
+    <script src="./vue.js">
+        let app = new Vue({
+        el: 'section',
+        data: {  // data为挂载点内部提供数据
+            msg: 'message',
+            info: '信息',
+            pStyle: {
+                color: 'yellowgreen'
+            }
+        },
+        methods: {
+            pClick: function () {
+                if (app.pStyle.color !== 'yellowgreen') {
+                    app.pStyle.color = 'yellowgreen'
+                } else {
+                    app.pStyle.color = 'red'
+                }
+                console.log(app.msg);
+                console.log(app.pClick);
+                console.log(this.msg);
+                console.log(this.pClick);
+            }
+        }
+    });
+	// 实例外部需要访问实例内部的属性，需要将实例用一个变量接收
+    console.log(app.msg)
+    </script>
+</body>
+</html>

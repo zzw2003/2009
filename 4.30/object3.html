@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj1 = {
+            name :"zhangsan",
+            age : 11,
+            get name(){
+                console.log("正在读取name属性");
+            },
+            set name(v){
+                console.log("新值为:",v)
+            }
+        }
+        obj1.name //访问name属性触发get方法
+        obj1.name = "ll" // 修改name属性触发set方法
+    </script>
+</body>
+</html>

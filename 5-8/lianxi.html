@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            name : "lishumin",
+            age : 11
+        }
+        obj.sex = "M"
+        Object.defineProperty(obj,"email",{
+            value:'3424000255@qq.com',
+            writable : true,  //表示属性可写
+            configurable:true,//表示属性可通过delete删除
+            enumerable:true,  //表示可枚举
+        })
+        //属性拦截器get/set
+        Object.defineProperty(obj,"address",{
+            get:function(){
+                console.log("触发了get方法")
+            },
+            set:function(new_value){
+                console.log("触发了set方法")
+            }
+        })
+
+        //读address属性
+        obj.address
+        obj.address= "上海";
+        console.log(obj);
+
+        //枚举对象的属性
+        for(k in obj){
+            console.log(k,obj[k]);
+        }
+        //获取对象中的属性名
+        let karr = Object.keys(obj)
+        console.log("对象的key :",karr);
+        //获取对象的 键值对
+        let kv = Object.entries(obj);
+        console.log("对象的键对值",kv);
+        //获取对象中农key对应的值
+        let varr = Object.values(obj)
+        console.log("对象中的值:",varr );
+
+        //删除对象中的属性
+        console.log(obj) 
+        delete obj.name
+        console.log(obj)
+
+
+    </script>
+</body>
+</html>

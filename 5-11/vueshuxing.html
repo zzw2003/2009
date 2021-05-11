@@ -1,0 +1,80 @@
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .d1 {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+        }
+        .d2 {
+            border-radius: 50%;
+        }
+        .d3 {
+            border-radius: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!--属性指令：   v-bind:属性名="变量"
+            简写：       :属性名="变量"
+        -->
+        <p style="color: red" class="dd1" abc="def" title="悬浮提示">红色字体</p>
+
+        <!--1、简单使用-->
+        <p v-bind:title="pTitle" :abc="def" @click="changeImg">简单使用</p>
+        <!--<img :src="img_src" alt="">-->
+
+
+        <!--2、class属性绑定-->
+        <!--c1变量的值就是类名-->
+        <p :class="c1"></p>
+
+        <!--多类名可以用[]语法，采用多个变量来控制-->
+        <p :class="[c2, c3]"></p>
+        <!--选择器位可以设置为变量，也可以设置为常量-->
+        <p :class="['d1', c4]"></p>
+
+        <!--{类名: 布尔值}控制某类名是否起作用-->
+        <!--<p :class="{x1: false}"></p>-->
+        <!--多种语法混用-->
+        <p :class="['d1', {d2: is_true}]" @click="is_true = !is_true"></p>
+
+
+        <!--3、style属性绑定(了解)-->
+        <p :style="myStyle">样式属性</p>
+        <p :style="{width: w,height: h, backgroundColor: bgc}">样式属性</p>
+    </div>
+</body>
+
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            pTitle: '简单使用',
+            def: '自定义属性',
+            img_src: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3819296004,574391848&fm=26&gp=0.jpg',
+            c1: 'd1 d2',
+            c2: 'd1',
+            c3: 'd3',
+            c4: 'd3',
+            is_true: true,
+            myStyle: {
+                width: '100px',
+                height: '100px',
+                backgroundColor: 'red'
+            },
+            w: '200px',
+            h: '100px',
+            bgc: 'green'
+        },
+        methods: {
+            changeImg() {
+                this.img_src = 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1371195756,4187769521&fm=26&gp=0.jpg'
+            }
+        }
+    })
+</script>

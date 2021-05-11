@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [11,22,33,44]
+            Object.prototype[Symbol.iterator]=xxx
+
+        let it = arr[Symbol.iterator]()
+        for (v of it){
+            console.log(v)
+        }
+        for (let v of arr){
+            console.log(v)
+        }
+    </script>
+</body>
+</html>

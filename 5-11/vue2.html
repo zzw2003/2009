@@ -1,0 +1,27 @@
+
+<body>
+    <div id="app">
+        <p>{{ msg.split('') }}</p>
+        <p v-text="msg.split('')">12345</p>
+        <p v-text="info"></p>
+        <p v-html="info"></p>
+        <hr>
+        <p v-on:click="pClick" v-once>{{ msg + info }}</p>
+        <p>{{ msg }}</p>
+    </div>
+</body>
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            msg: 'message',
+            info: '<i>info</i>'
+        },
+        methods: {
+            pClick: function () {
+                this.msg = '信息'
+            }
+        }
+    })
+</script>
